@@ -10,7 +10,7 @@ function Split() {
   const [calculated, setCalculated] = useState(false)
 
   const roomCode = localStorage.getItem('roomCode')
-  const roomName = localStorage.getItem('roomName')
+ // const roomName = localStorage.getItem('roomName')
   const memberName = localStorage.getItem('memberName')
 
   useEffect(() => {
