@@ -14,7 +14,7 @@ function JoinRoom() {
 useEffect(() => {
   const code = searchParams.get('code')
   if (code) setRoomCode(code.toUpperCase())
-}, [])
+}, [searchParams])
 const handleJoin = async () => {
   if (!memberName) { setError('Enter your name'); return }
   if (!roomCode) { setError('Enter room code'); return }

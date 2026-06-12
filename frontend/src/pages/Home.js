@@ -28,7 +28,7 @@ function Home() {
     if (!roomCode || !memberName) {
       navigate('/')
     }
-  }, [])
+  }, [roomCode, memberName, navigate])
 
   // Load expenses on start
   useEffect(() => {

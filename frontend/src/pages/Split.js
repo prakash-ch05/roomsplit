@@ -16,7 +16,7 @@ function Split() {
   useEffect(() => {
     if (!roomCode) { navigate('/'); return }
     loadExpenses()
-  }, [])
+  }, [roomCode, navigate])
 
   const loadExpenses = async () => {
     try {

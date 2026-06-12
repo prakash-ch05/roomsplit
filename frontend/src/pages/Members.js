@@ -14,7 +14,7 @@ function Members() {
   useEffect(() => {
     if (!roomCode) { navigate('/'); return }
     loadData()
-  }, [])
+  }, [roomCode, navigate])
 
   const loadData = async () => {
     try {
