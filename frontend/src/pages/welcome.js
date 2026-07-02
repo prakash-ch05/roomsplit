@@ -1,26 +1,50 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Welcome() {
   const navigate = useNavigate()
-    // Add this import at top if not there
+  const [installPrompt, setInstallPrompt] = useState(null)
+  const [showInstallBtn, setShowInstallBtn] = useState(false)
 
+  useEffect(() => {
+    const roomCode = localStorage.getItem('roomCode')
+    const memberName = localStorage.getItem('memberName')
+    if (roomCode && memberName) {
+      navigate('/home')
+    }
 
-// Add inside Welcome() function, after const navigate = useNavigate()
-useEffect(() => {
-  const roomCode = localStorage.getItem('roomCode')
-  const memberName = localStorage.getItem('memberName')
-  if (roomCode && memberName) {
-    navigate('/home')
+    // Capture install prompt
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault()
+      setInstallPrompt(e)
+      setShowInstallBtn(true)
+    })
+  }, [navigate])
+
+  const handleInstall = async () => {
+    if (!installPrompt) return
+    installPrompt.prompt()
+    const result = await installPrompt.userChoice
+    if (result.outcome === 'accepted') {
+      setShowInstallBtn(false)
+    }
   }
-}, [navigate])
-
 
   return (
     <div style={styles.container}>
       <div style={styles.emoji}>🏠</div>
       <h1 style={styles.title}>RoomSplit</h1>
       <p style={styles.tagline}>Shared expenses · Zero drama</p>
+
+      {/* Install Button */}
+      {showInstallBtn && (
+        <button
+          style={styles.installBtn}
+          onClick={handleInstall}
+        >
+          📲 Install App
+        </button>
+      )}
 
       <div style={styles.buttonContainer}>
         <button
@@ -29,11 +53,12 @@ useEffect(() => {
         >
           🏠 Create a Room
         </button>
-       <button
-         style={styles.secondaryBtn}
-         onClick={() => navigate('/join')}>
-       🔗 Join a Room
-      </button>
+        <button
+          style={styles.secondaryBtn}
+          onClick={() => navigate('/join')}
+        >
+          🔗 Join a Room
+        </button>
       </div>
     </div>
   )
@@ -66,6 +91,19 @@ const styles = {
     letterSpacing: '2px',
     textTransform: 'uppercase',
     marginBottom: '48px'
+  },
+  installBtn: {
+    width: '100%',
+    maxWidth: '320px',
+    padding: '14px',
+    background: 'rgba(240,192,64,0.1)',
+    color: '#f0c040',
+    border: '1.5px solid #f0c040',
+    borderRadius: '14px',
+    fontSize: '15px',
+    fontWeight: '700',
+    cursor: 'pointer',
+    marginBottom: '16px'
   },
   buttonContainer: {
     display: 'flex',
