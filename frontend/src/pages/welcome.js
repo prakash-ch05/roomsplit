@@ -3,6 +3,18 @@ import { useNavigate } from 'react-router-dom'
 
 function Welcome() {
   const navigate = useNavigate()
+    // Add this import at top if not there
+
+
+// Add inside Welcome() function, after const navigate = useNavigate()
+useEffect(() => {
+  const roomCode = localStorage.getItem('roomCode')
+  const memberName = localStorage.getItem('memberName')
+  if (roomCode && memberName) {
+    navigate('/home')
+  }
+}, [navigate])
+
 
   return (
     <div style={styles.container}>

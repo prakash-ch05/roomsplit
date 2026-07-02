@@ -11,7 +11,7 @@ function Invite() {
     if (!roomCode) { navigate('/'); return }
   }, [roomCode, navigate])
 
-  const inviteLink = `http://localhost:3000/join?code=${roomCode}`
+  const inviteLink = `${window.location.origin}/join?code=${roomCode}`
 
   const copyLink = () => {
     navigator.clipboard.writeText(inviteLink)
