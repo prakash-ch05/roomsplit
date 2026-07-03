@@ -68,14 +68,27 @@ socket.on('delete-expense', (expenseId) => {
 }
   }, [])
 
+  // const loadMyExpenses = async () => {
+  //   try {
+  //     const data = await getMyExpenses(roomCode, memberName)
+  //     if (data.success) setMyExpenses(data.expenses)
+  //   } catch (err) {
+  //     console.log(err)
+  //   }
+  // }
   const loadMyExpenses = async () => {
-    try {
-      const data = await getMyExpenses(roomCode, memberName)
-      if (data.success) setMyExpenses(data.expenses)
-    } catch (err) {
-      console.log(err)
+  try {
+    const data = await getExpenses(roomCode)
+    if (data.success) {
+      const mine = data.expenses.filter(
+        e => e.memberName.toLowerCase().trim() === memberName.toLowerCase().trim()
+      )
+      setMyExpenses(mine)
     }
+  } catch (err) {
+    console.log(err)
   }
+}
 
   const loadAllExpenses = async () => {
     try {
