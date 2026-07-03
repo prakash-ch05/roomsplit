@@ -186,8 +186,11 @@ const onTouchEnd = () => {
 <div style={styles.header}>
   <button
     onClick={() => {
+      const confirm =window.confirm('Leave Room? You will need to rejoin.')
+      if (confirm){
       localStorage.clear()
       navigate('/')
+      }
     }}
     style={styles.backBtn}
   >
