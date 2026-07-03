@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "app.vercel.roomsplit_black.twa",
+        "sha256_cert_fingerprints": ["22:3B:DA:04:9C:F4:95:DC:27:FF:E1:ED:F2:ED:5F:94:94:C4:BA:D7:F9:49:A0:6E:0A:24:16:3A:CB:39:C4:D1"]
+      }
+    }]
