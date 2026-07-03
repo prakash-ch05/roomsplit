@@ -32,39 +32,34 @@ function Welcome() {
       <p style={styles.tagline}>Shared expenses · Zero drama</p>
 
       <div style={styles.buttonContainer}>
-        <button
-          style={styles.primaryBtn}
-          onClick={() => navigate('/create')}
-        >
-          🏠 Create a Room
-        </button>
-        <button
-          style={styles.secondaryBtn}
-          onClick={() => navigate('/join')}
-        >
-          🔗 Join a Room
-        </button>
+  <button
+    style={styles.primaryBtn}
+    onClick={() => navigate('/create')}
+  >
+    🏠 Create a Room
+  </button>
+  <button
+    style={styles.secondaryBtn}
+    onClick={() => navigate('/join')}
+  >
+    🔗 Join a Room
+  </button>
 
-        {/* Android - APK Download */}
-        {isAndroid && (
-          <a
-            href="https://drive.google.com/uc?export=download&id=1HCp9wbVuKxiLLnLWWc7nj9HfvGiO65sb"
-            style={styles.downloadBtn}
-          >
-            📲 Download App (Android)
-          </a>
-        )}
+  {/* Always show both */}
+  <a
+    href="https://drive.google.com/uc?export=download&id=1HCp9wbVuKxiLLnLWWc7nj9HfvGiO65sb"
+    style={styles.downloadBtn}
+  >
+    📲 Download App (Android)
+  </a>
 
-        {/* iPhone - Install Instructions */}
-        {isIOS && (
-          <button
-            style={styles.installBtn}
-            onClick={handleIOSInstall}
-          >
-            📲 Install App (iPhone)
-          </button>
-        )}
-      </div>
+  <button
+    style={styles.installBtn}
+    onClick={handleIOSInstall}
+  >
+    📲 Install App (iPhone)
+  </button>
+</div>
     </div>
   )
 }
