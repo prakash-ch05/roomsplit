@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 function Welcome() {
   const navigate = useNavigate()
   const [installPrompt, setInstallPrompt] = useState(null)
-  const [showInstallBtn, setShowInstallBtn] = useState(false)
+  const [showInstallBtn, setShowInstallBtn] = useState(true)
 
   useEffect(() => {
     const roomCode = localStorage.getItem('roomCode')
@@ -22,13 +22,16 @@ function Welcome() {
   }, [navigate])
 
   const handleInstall = async () => {
-    if (!installPrompt) return
+    if (installPrompt){ 
     installPrompt.prompt()
     const result = await installPrompt.userChoice
     if (result.outcome === 'accepted') {
       setShowInstallBtn(false)
     }
+  }else{
+    alert('To install: tap Share button -> Add to Home Screen')
   }
+}
 
   return (
     <div style={styles.container}>
