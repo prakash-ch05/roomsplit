@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "src": "/sw.js",
+      "dest": "/sw.js"
+    },
+    {
+      "src": "^/(?!sw\\.js).*",
+      "dest": "/index.html"
+    }
+  ]
+}
