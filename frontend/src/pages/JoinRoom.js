@@ -94,8 +94,6 @@ const styles = {
     minHeight: '100vh',
     background: '#0e0e11',
     padding: '24px 20px',
-    maxWidth: '420px',
-    margin: '0 auto',
     display: 'flex',
     flexDirection: 'column'
   },
