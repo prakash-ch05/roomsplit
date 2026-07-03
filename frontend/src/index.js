@@ -9,7 +9,7 @@ root.render(<App />)
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
-      .then(() => console.log('RoomSplit SW registered'))
+      // .then(() => console.log('RoomSplit SW registered'))
       .catch(err => console.log('SW error:', err))
   })
 }
