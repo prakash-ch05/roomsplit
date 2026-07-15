@@ -1,7 +1,7 @@
 {
-  "short_name": "RoomSplit",
-  "name": "RoomSplit - Shared Expenses",
-  "description":"Roomsplit is a web app that helps roomates track shared expenses and split bills easily.It allows users to create a room, add expenses and spilt .",
+  "short_name": "RoomEx",
+  "name": "RoomEx - Shared Expenses",
+  "description":"RoomEx is a web app that helps roomates track shared expenses and split bills easily.It allows users to create a room, add expenses and spilt .",
   "icons": [
     
     {

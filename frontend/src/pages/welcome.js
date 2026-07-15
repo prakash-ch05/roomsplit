@@ -28,7 +28,7 @@ function Welcome() {
   return (
     <div style={styles.container}>
       <div style={styles.emoji}>🏠</div>
-      <h1 style={styles.title}>RoomSplit</h1>
+      <h1 style={styles.title}>RoomEx</h1>
       <p style={styles.tagline}>Shared expenses · Zero drama</p>
 
       <div style={styles.buttonContainer}>

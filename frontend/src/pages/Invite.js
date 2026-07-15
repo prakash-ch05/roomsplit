@@ -94,7 +94,7 @@ function Invite() {
 
         {/* WhatsApp Share */}
         <a
-          href={`https://wa.me/?text=Join my RoomSplit room! Code: ${roomCode} Link: ${inviteLink}`}
+          href={`https://wa.me/?text=Join my RoomEx room! Code: ${roomCode} Link: ${inviteLink}`}
           target="_blank"
           rel="noreferrer"
           style={styles.whatsappBtn}
